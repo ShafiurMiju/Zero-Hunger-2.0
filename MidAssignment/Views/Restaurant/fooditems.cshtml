@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "fooditems";
+    Layout = "~/Views/Shared/_RestaurantMenuBar.cshtml";
+}
+
+<div class="flex  items-start">
+    <div class="w-[50%]">
+        <h3 class="text-center text-xl text-green-500 m-5 font-bold">Food List</h3>
+
+        <table class="table-auto w-full border-collapse border border-slate-500">
+            <thead>
+                <tr>
+                    <th class="border border-slate-600 py-4">Id</th>
+                    <th class="border border-slate-600 py-4">Name</th>
+                </tr>
+            </thead>
+            @foreach (var s in Model)
+            {
+                <tbody>
+                    <tr class="text-center">
+                        <td class="border border-slate-600 py-3">@s.FoodItemID</td>
+                        <td class="border border-slate-600 py-3">@s.Name</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+
+    <div class="w-[50%] flex justify-center flex-col">
+        <h3 class="text-center text-xl text-green-500 m-5 font-bold">Add Food</h3>
+
+        <form class="flex flex-col gap-5 justify-center items-center" method="post" action="">
+            <input class="w-[70%] py-4 border-[2px] rounded text-center" type="text" name="Name" placeholder="Enter Food Name" />
+            <input class="bg-green-400 px-10 rounded py-3 cursor-pointer" type="submit" value="Add" />
+        </form>
+    </div>
+</div>
+

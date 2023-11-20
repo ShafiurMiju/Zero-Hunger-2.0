@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "restaurant";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="flex pt-2 items-start">
+    <div class="w-[100%]">
+        <h3 class="text-center p-3 text-xl text-green-500 mb-2 font-bold bg-gray-300">Restaurant List</h3>
+
+        <table class="table-auto w-full border-collapse border border-slate-500">
+            <thead>
+                <tr>
+                    <th class="border border-slate-600 py-4">ID</th>
+                    <th class="border border-slate-600 py-4">Name</th>
+                    <th class="border border-slate-600 py-4">Contact Number</th>
+                    <th class="border border-slate-600 py-4">Email</th>
+                    <th class="border border-slate-600 py-4">Address</th>
+                    <th class="border border-slate-600 py-4">Status</th>
+                    <th class="border border-slate-600 py-4">Action</th>
+                </tr>
+            </thead>
+            @foreach (var r in Model)
+            {
+                <tbody>
+                    <tr class="text-center">
+                        <td class="border border-slate-600 py-3">@r.RestaurantID</td>
+                        <td class="border border-slate-600 py-3">@r.Name</td>
+                        <td class="border border-slate-600 py-3">@r.ContactNumber</td>
+                        <td class="border border-slate-600 py-3">@r.Email</td>
+                        <td class="border border-slate-600 py-3">@r.Address</td>
+                        <td class="border border-slate-600 py-3">@r.Status</td>
+                        <td class="border border-slate-600 py-3"><a class="bg-red-400 py-2 px-5 rounded" href="/admin/Restaurantdelete/@r.RestaurantID">Delete</a></td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

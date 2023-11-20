@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "collected";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<div class="flex pt-2 items-start">
+    <div class="w-[100%]">
+        <h3 class="text-center p-3 text-xl text-green-500 mb-2 font-bold bg-gray-300">Requested List</h3>
+
+        <table class="table-auto w-full border-collapse border border-slate-500">
+            <thead>
+                <tr>
+                    <th class="border border-slate-600 py-4">Restaurant Name</th>
+                    <th class="border border-slate-600 py-4">Location</th>
+                    <th class="border border-slate-600 py-4">Food Items</th>
+                    <th class="border border-slate-600 py-4">Preserve Time</th>
+                    <th class="border border-slate-600 py-4">Quantity</th>
+                    <th class="border border-slate-600 py-4">Expired Date</th>
+
+                    <th class="border border-slate-600 py-4">Action</th>
+
+                    <th class="border border-slate-600 py-4">Distributed Date</th>
+                </tr>
+            </thead>
+            @foreach (var c in Model)
+            {
+                <tbody>
+                    <tr class="text-center">
+                        <td class="border border-slate-600 py-3">@c.CollectRequest.Restaurant.Name</td>
+                        <td class="border border-slate-600 py-3">@c.CollectRequest.Restaurant.Address</td>
+                        <td class="border border-slate-600 py-3">@c.CollectRequest.FoodItem.Name</td>
+                        <td class="border border-slate-600 py-3">@c.CollectRequest.PreserveTime</td>
+                        <td class="border border-slate-600 py-3">@c.CollectRequest.Quantity</td>
+                        <td class="border border-slate-600 py-3">@c.CollectRequest.ExpiredDate</td>
+
+                        @if (c.Status == "Not Distributed")
+                        {
+                            <td class="border border-slate-600 py-3"><a class="bg-red-400 py-2 px-5 rounded" href="/employee/distributedupdate/@c.DistributionID">@c.Status</a></td>
+                        }
+                        else
+                        {
+                            <td class="border border-slate-600">@c.Status</td>
+                        }
+
+                        <td class="border border-slate-600 py-3">@c.DistributionDate</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+

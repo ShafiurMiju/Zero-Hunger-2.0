@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "createRequest";
+    Layout = "~/Views/Shared/_RestaurantMenuBar.cshtml";
+}
+
+<div class="">
+    <div class="w-[100%]">
+        <h3 class="text-center text-xl text-green-500 m-5 font-bold">Make a Request</h3>
+
+        <form class="flex flex-col gap-5 justify-center items-center" method="post" action="">
+            <select name="FoodItemID" class="w-[70%] p-4 border-[2px] rounded">
+                <option disabled selected>Select Food Item</option>
+                @foreach (var f in ViewBag.FoodItems)
+                {
+                    <option value="@f.FoodItemID"> @f.Name </option>
+                }
+            </select>
+
+            <input class="w-[70%] p-4 border-[2px] rounded" type="text" name="Quantity" value="@(Model == null? "": Model.Quantity)" placeholder="Enter Quantity" />
+            <span>@Html.ValidationMessage("Quantity")</span>
+
+            <input class="w-[70%] p-4 border-[2px] rounded" type="text" name="PreserveTime" value="@(Model == null? "": Model.PreserveTime)" placeholder="Enter Preserve Time" />
+            <span>@Html.ValidationMessage("PreserveTime")</span>
+
+
+            <input class="w-[70%] p-4 border-[2px] rounded" type="date" name="ExpiredDate" />
+
+
+            <input class="bg-green-400 px-10 rounded py-3 cursor-pointer" type="submit" value="Send Request" />
+        </form>
+    </div>
+
+</div>
+
+
+

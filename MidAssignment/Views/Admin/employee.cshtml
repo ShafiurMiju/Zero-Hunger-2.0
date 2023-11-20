@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "employee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="flex pt-2 items-start">
+    <div class="w-[100%]">
+        <h3 class="text-center p-3 text-xl text-green-500 font-bold mb-2 bg-gray-300">Employee List</h3>
+
+        <table class="table-auto w-full border-collapse border border-slate-500">
+            <thead>
+                <tr>
+                    <th class="border border-slate-600 py-4">ID</th>
+                    <th class="border border-slate-600 py-4">Name</th>
+                    <th class="border border-slate-600 py-4">Email</th>
+                    <th class="border border-slate-600 py-4">Gender</th>
+                    <th class="border border-slate-600 py-4">Contact Number</th>
+                    <th class="border border-slate-600 py-4">Address</th>
+                    <th class="border border-slate-600 py-4">Action</th>
+                </tr>
+            </thead>
+            @foreach (var e in Model)
+            {
+                <tbody>
+                    <tr class="text-center">
+                        <td class="border border-slate-600 py-3">@e.EmployeeID</td>
+                        <td class="border border-slate-600 py-3">@e.Name</td>
+                        <td class="border border-slate-600 py-3">@e.Email</td>
+                        <td class="border border-slate-600 py-3">@e.Gender</td>
+                        <td class="border border-slate-600 py-3">@e.ContactNumber</td>
+                        <td class="border border-slate-600 py-3">@e.Address</td>
+                        <td class="border border-slate-600 py-3"><a class="bg-red-400 py-2 px-5 rounded" href="/Admin/employeedelete/@e.EmployeeID">Delete</a></td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+

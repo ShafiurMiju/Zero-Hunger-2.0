@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "join";
+    Layout = "~/Views/Shared/_MenuFooter.cshtml";
+}
+
+
+<div class="flex pt-14 items-start justify-center">
+    <div class="w-[50%] flex justify-center flex-col">
+        <h3 class="text-center text-xl text-green-500 m-5 font-bold">JOIN WITH US</h3>
+
+        <form class="flex flex-col gap-5 justify-center items-center" method="post" action="">
+            <input class="w-[70%] py-4 border-[2px] rounded text-center" type="text" name="Name" value="@(Model == null? "": Model.Name)" placeholder="Enter Restaurant Name" />
+            <span class="text-red-400">@Html.ValidationMessage("Name")</span>
+            <input class="w-[70%] py-4 border-[2px] rounded text-center" type="text" name="Email" value="@(Model == null? "": Model.Email)" placeholder="Enter Email Address" />
+            <span class="text-red-400">@Html.ValidationMessage("Email")</span>
+            <input class="w-[70%] py-4 border-[2px] rounded text-center" type="text" name="ContactNumber" value="@(Model == null? "": Model.ContactNumber)" placeholder="Enter Contact Number" />
+            <span class="text-red-400">@Html.ValidationMessage("ContactNumber")</span>
+            <input class="w-[70%] py-4 border-[2px] rounded text-center" type="text" name="Address" value="@(Model == null? "": Model.Address)" placeholder="Enter Address" />
+            <span class="text-red-400">@Html.ValidationMessage("Address")</span>
+            <input class="w-[70%] py-4 border-[2px] rounded text-center" type="text" name="Password" value="@(Model == null? "": Model.Password)" placeholder="Password" />
+            <span class="text-red-400">@Html.ValidationMessage("Password")</span>
+            <input class="bg-green-400 px-10 rounded py-3 cursor-pointer" type="submit" value="JOIN" />
+        </form>
+    </div>
+</div>
+
+

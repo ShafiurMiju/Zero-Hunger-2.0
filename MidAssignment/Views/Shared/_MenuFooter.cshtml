@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BD NGO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="bg-gray-800 text-white">
+        <div class="container m-auto py-4 flex justify-between items-center">
+            <div class="text-2xl">BD NGO</div>
+            <div class="flex gap-5">
+                <a href="" class="text-blue-300">Home</a>
+                <a href="">About</a>
+                <a href="">Contact</a>
+            </div>
+            <div class="flex gap-5">
+                <a href="/home/login">Login</a>
+                <a href="/home/join">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        @RenderBody()
+    </section>
+
+    <footer class="bg-gray-800 text-white">
+        <div class="container m-auto">
+            <div class="py-4">
+                Made by Md. Shafiur Rahman
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

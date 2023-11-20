@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<div class="flex pt-2 items-start">
+    <div class="w-[100%]">
+        <h3 class="text-center p-3 text-xl text-green-500 mb-2 font-bold bg-gray-300">Requested List</h3>
+
+        <table class="table-auto w-full border-collapse border border-slate-500">
+            <thead>
+                <tr>
+                    <th class="border border-slate-600 py-4">Restaurant Name</th>
+                    <th class="border border-slate-600 py-4">Location</th>
+                    <th class="border border-slate-600 py-4">Contact Number</th>
+                    <th class="border border-slate-600 py-4">Food Items</th>
+                    <th class="border border-slate-600 py-4">Preserve Time</th>
+                    <th class="border border-slate-600 py-4">Quantity</th>
+                    <th class="border border-slate-600 py-4">Expired Date</th>
+
+                    <th class="border border-slate-600 py-4">Action</th>
+                </tr>
+            </thead>
+            @foreach (var c in Model)
+            {
+                <tbody>
+                    <tr class="text-center">
+                        <td class="border border-slate-600 py-3">@c.Restaurant.Name</td>
+                        <td class="border border-slate-600 py-3">@c.Restaurant.Address</td>
+                        <td class="border border-slate-600 py-3">@c.Restaurant.ContactNumber</td>
+                        <td class="border border-slate-600 py-3">@c.FoodItem.Name</td>
+                        <td class="border border-slate-600 py-3">@c.PreserveTime</td>
+                        <td class="border border-slate-600 py-3">@c.Quantity</td>
+                        <td class="border border-slate-600 py-3">@c.ExpiredDate</td>
+
+                        <td class="border border-slate-600 py-3"><a class="bg-red-400 py-2 px-5 rounded" href="/employee/requestupdate/@c.RequestID">Accept</a></td>
+
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+
